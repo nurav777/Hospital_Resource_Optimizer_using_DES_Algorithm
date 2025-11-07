@@ -1,0 +1,11 @@
+{
+  "num_doctors": 6,
+  "clinic_minutes_per_day": 480,
+  "avg_arrivals_per_hour": 12,
+  "avg_consult_minutes": 20,
+  "registration_minutes": 5,
+  "pct_scheduled": 0.5,
+  "no_show_pct": 0.1,
+  "doctor_break_minutes": 30,
+  "sim_duration_days": 7
+}

@@ -1,0 +1,7 @@
+{
+  "num_beds": 200,
+  "arrival_rate_per_hour": 1.7,
+  "avg_los_days": 4,
+  "pct_emergent": 0.2,
+  "sim_duration_days": 30
+}

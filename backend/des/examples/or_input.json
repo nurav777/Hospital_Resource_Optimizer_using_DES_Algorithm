@@ -1,0 +1,8 @@
+{
+  "num_ors": 4,
+  "or_minutes_per_day": 480,
+  "avg_arrivals_per_hour": 1.2,
+  "avg_case_minutes": 120,
+  "pct_emergent": 0.1,
+  "sim_duration_days": 7
+}
