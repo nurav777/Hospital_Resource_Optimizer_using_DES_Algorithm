@@ -1,73 +1,148 @@
-# Welcome to your Lovable project
+ # Ops Care Dashboard
 
-## Project info
+ A web-based healthcare operations management dashboard for optimizing resource allocation, improving patient flow, and enabling data‑driven decision making across hospitals and clinics.
 
-**URL**: https://lovable.dev/projects/625ad11d-d8c9-4248-86fe-6b049ad389a1
+ ## 1. Problem Statement
 
-## How can I edit this code?
+ ### 1.1 Background
 
-There are several ways of editing your application.
+ Healthcare operations management faces significant challenges in optimizing resource allocation, patient flow, and overall operational efficiency. Hospitals and clinics often struggle with:
 
-**Use Lovable**
+ - Inefficient patient scheduling and resource allocation  
+ - Lack of real-time visibility into operational metrics  
+ - Manual processes leading to delays and errors  
+ - Difficulty in predicting and managing bed occupancy  
+ - Poor coordination between clinical and operational staff  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/625ad11d-d8c9-4248-86fe-6b049ad389a1) and start prompting.
+ ### 1.2 Problem Definition
 
-Changes made via Lovable will be committed automatically to this repo.
+ The Ops Care Dashboard addresses the critical need for a comprehensive healthcare operations management system that provides:
 
-**Use your preferred IDE**
+ - Simulation-based optimization for resource allocation (beds, ORs, clinics)  
+ - Real-time monitoring of hospital operations and performance metrics  
+ - Role-based access control for different healthcare stakeholders  
+ - Automated reporting and audit trails for compliance  
+ - Integration capabilities with existing hospital systems  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+ ### 1.3 Objectives
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+ The main objectives of the Ops Care Dashboard are to:
 
-Follow these steps:
+ - Reduce patient wait times through optimized scheduling  
+ - Improve resource utilization across hospital departments  
+ - Provide data-driven insights for operational decision-making  
+ - Ensure compliance through comprehensive audit logging  
+ - Enable predictive analytics for capacity planning  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+ ## 2. User Stories
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+ ### 2.1 Admin Users
 
-# Step 3: Install the necessary dependencies.
-npm i
+ - As an admin, I want to manage user accounts and roles so that I can control system access and permissions.  
+ - As an admin, I want to view comprehensive audit logs so that I can monitor system usage and ensure compliance.  
+ - As an admin, I want to generate reports on system usage and performance so that I can make informed decisions.  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+ ### 2.2 Clinical Users
 
-**Edit a file directly in GitHub**
+ - As a clinical user, I want to submit simulation requests for patient scenarios so that I can optimize treatment planning.  
+ - As a clinical user, I want to view feedback on submitted requests so that I can improve future submissions.  
+ - As a clinical user, I want to access patient management tools so that I can efficiently manage patient care.  
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+ ### 2.3 Operator Users
 
-**Use GitHub Codespaces**
+ - As an operator, I want to manage pharmacy requests so that I can ensure timely medication delivery.  
+ - As an operator, I want to view simulation results so that I can implement operational improvements.  
+ - As an operator, I want to monitor real-time system status so that I can respond to issues promptly.  
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+ ### 2.4 Pharmacist Users
 
-## What technologies are used for this project?
+ - As a pharmacist, I want to manage medicine inventory so that I can maintain adequate stock levels.  
+ - As a pharmacist, I want to process medication requests so that patients receive timely care.  
+ - As a pharmacist, I want to track medication usage patterns so that I can optimize inventory management.  
 
-This project is built with:
+## 3. System Architecture and Design
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 3.1 System Architecture Overview
 
-## How can I deploy this project?
+The Ops Care Dashboard follows a modern web application architecture comprising:
 
-Simply open [Lovable](https://lovable.dev/projects/625ad11d-d8c9-4248-86fe-6b049ad389a1) and click on Share -> Publish.
+- **Frontend**: React-based single-page application (SPA) built with Vite and TypeScript  
+- **Backend**: RESTful API server with a microservices architecture  
+- **Database**: NoSQL database for flexible and scalable data storage (AWS DynamoDB)  
+- **Authentication**: Cloud-based identity management via AWS Cognito  
+- **Simulation Engines**: Python-based discrete event simulation (DES) services  
 
-## Can I connect a custom domain to my Lovable project?
+## 4. Technology Used
 
-Yes, you can!
+- **TypeScript**: Strongly typed language for the React frontend, improving reliability and maintainability.  
+- **Python (DES)**: Python-based discrete event simulation engines used to model and optimize patient flow and resource utilization.  
+- **AWS Cognito**: Manages user authentication, tokens, and secure access control.  
+- **AWS DynamoDB**: NoSQL database used for audit logs, simulation requests/results, pharmacy stock, and other operational data.  
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 5. Getting Started
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+ ### 4.1 Prerequisites
+
+ - Node.js (LTS) and npm or a compatible package manager  
+ - Git (to clone the repository)  
+
+ ### 4.2 Installation
+
+ ```bash
+ # Clone the repository
+ git clone <your-repo-url>
+ cd ops-care-dash-main
+
+ # Install dependencies
+ npm install
+ ```
+
+ ### 4.3 Running the App
+
+ ```bash
+ # Start the development server
+ npm run dev
+ ```
+
+ The app should now be available at the URL shown in your terminal (typically `http://localhost:5173` for Vite).
+
+## 6. Screenshots and Outputs
+
+ Below are sample screenshots and outputs from the Ops Care Dashboard:
+
+    ## 6.1. Login Page (same for all roles trying to access their respective pages, uses AWS Cognito for authentication)
+ - ![Screenshot 1](./screenshots/1.png)
+    
+    ## 6.2. Adding User feature in Admin home page (adds users to the AWS Cognito user pool)
+ - ![Screenshot 2](./screenshots/2.png)
+    
+    ## 6.3. Audit Logs which can be viewed only by Admin (logs are stored in AWS DynamoDB, can be downloaded as a CSV file via frontend)
+ - ![Screenshot 3](./screenshots/3.png)
+
+    ## 6.4. Clinical User sending Simulation request to Operator 
+ - ![Screenshot 4](./screenshots/4.png)
+
+    ## 6.5. Clinical User entering request details of their particular request (request details stored in DynamoDB) 
+ - ![Screenshot 5](./screenshots/5.png)
+
+    ## 6.6. Results page where Clinical User can view the results and details of completed simulation request
+ - ![Screenshot 6](./screenshots/6.png)
+
+    ## 6.7. Operator home page where the simulation requests can be viewed , verified and run (fetched from DynamoDB)
+ - ![Screenshot 7](./screenshots/7.png)
+
+    ## 6.8. Operator viewing the results of concluded simulation request
+ - ![Screenshot 8](./screenshots/8.png)
+
+    ## 6.9. Operator viewing Pharmacy requests for replenishing medicine stock
+ - ![Screenshot 9](./screenshots/9.png)
+
+    ## 6.10. Operator approving the Pharmacy requests
+ - ![Screenshot 10](./screenshots/10.png)
+
+    ## 6.11. Receipt generation , viewed by operator , after request goes through
+ - ![Screenshot 11](./screenshots/11.png)
+
+    ## 6.12. Pharmacist home page where request to replenish stocks can be given
+ - ![Screenshot 12](./screenshots/12.png)
+

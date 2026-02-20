@@ -1,4 +1,0 @@
-- [x] Fix password hashing in userController.js (remove bcryptjs for Cognito)
-- [x] Enhance logger.js with winston for structured logging
-- [x] Update all backend services to use the new logger
-- [ ] Test user creation, listing, audit log fetching, and export
